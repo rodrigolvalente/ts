@@ -1,0 +1,10 @@
+# Global https://www.typescriptlang.org/download
+npm -g i typescript
+
+# Configurar tsconfig.json
+https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+
+tsc --init
+
+# TCD modo watch: recompila seu codigo a cada save
+tsc --watch
