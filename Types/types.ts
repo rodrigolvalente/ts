@@ -60,3 +60,63 @@ const serverConf: object = {
 console.log(serverConf, typeof serverConf)
 
 // Enum
+
+enum Permission {
+    ADMIN,
+    USER,
+    READONLY
+}
+console.log(Permission)
+console.log(Permission.ADMIN)
+console.log(Permission.USER)
+console.log(Permission.READONLY)
+console.log(typeof Permission)
+
+// null
+
+//const meuElemento: HTMLHeadingElement | null = document.querySelector("h2")
+
+let db: string | null = "mysql, 127.0.0.1, pass"
+db = null
+
+
+// undefined
+// Quando a variavel é criada e nao foi declarado o valor, ela é automaticamente "undefined"
+
+let variavel
+console.log(variavel)
+
+let outraVariavel: string | undefined
+if (new Date().getDate() === 15) {
+    outraVariavel = "hoje é dia 15"
+}
+console.log(outraVariavel)
+
+// any
+let valor: any;
+
+valor = true
+valor = 10
+valor = "Rodrigo"
+console.log(typeof valor)
+
+// unknown
+// Parecido com o any, porem o unknown nao pode ser atribuida a outras variaveis.
+let result: unknown;
+//let result2: number = result // essa atribuição da erro
+
+// void
+const meuConsole: void = console.log("Hello Typescript")
+console.log(meuConsole)
+
+
+// never
+let n = 0
+function loopInfinito(): never {
+    while (true) {
+        console.log(n++)
+    }
+}
+//loopInfinito() // Essa função nunca (never) tera retorno
+
+
