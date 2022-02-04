@@ -1,0 +1,44 @@
+name: Teraform Plan
+
+on:
+  pull_request:
+    branches:
+      - master
+      - main
+
+jobs:
+  run-staging:
+    name: "Teste - Staging"
+    environment: staging
+    runs-on: ubuntu-latest
+    env: 
+      TESTE01: ${{ secrets.TESTE01 }} 
+      TESTE02: ${{ secrets.TESTE02 }}
+    steps:
+      - run: "echo 'env staging'"
+      - run: "echo 'TESTE01: ${{ TESTE01 }}'"
+      - run: "echo 'TESTE02: ${{ TESTE02 }}'"
+
+  run-poduction:
+    name: "Teste - Production"
+    environment: production
+    runs-on: ubuntu-latest
+    env: 
+      TESTE01: ${{ secrets.TESTE01 }} 
+      TESTE02: ${{ secrets.TESTE02 }}
+    steps:
+      - run: "echo 'env staging'"
+      - run: "echo 'TESTE01: ${{ TESTE01 }}'"
+      - run: "echo 'TESTE02: ${{ TESTE02 }}'"
+
+  run-test:
+    name: "Teste - test"
+    environment: test
+    runs-on: ubuntu-latest
+    env: 
+      TESTE01: ${{ secrets.TESTE01 }} 
+      TESTE02: ${{ secrets.TESTE02 }}
+    steps:
+      - run: "echo 'env staging'"
+      - run: "echo 'TESTE01: ${{ TESTE01 }}'"
+      - run: "echo 'TESTE02: ${{ TESTE02 }}'"
