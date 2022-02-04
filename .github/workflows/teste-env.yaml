@@ -42,9 +42,9 @@ jobs:
     name: "Teste - test"
     environment: test
     runs-on: ubuntu-latest
-    env: 
-      # TESTE01: ${{ secrets.TESTE01 }} 
-      # TESTE02: ${{ secrets.TESTE02 }}
+    # env: 
+    #   TESTE01: ${{ secrets.TESTE01 }} 
+    #   TESTE02: ${{ secrets.TESTE02 }}
     steps:
       - run: "echo 'env test'"
       - run: echo "TESTE01 ${TESTE01}"
