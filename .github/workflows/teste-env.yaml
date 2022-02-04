@@ -1,0 +1,53 @@
+name: Teraform Plan
+
+on:
+  pull_request:
+    branches:
+      - master
+      - main
+env:
+  TESTE01: ${{ secrets.TESTE01 }}
+  TESTE02: ${{ secrets.TESTE02 }}
+
+jobs:
+  run-staging:
+    name: "Teste - Staging"
+    environment: staging
+    runs-on: ubuntu-latest
+    # env: 
+    #   TESTE01: ${{ secrets.TESTE01 }} 
+    #   TESTE02: ${{ secrets.TESTE02 }}
+    steps:
+      - run: "echo 'env staging'"
+      - run: echo "TESTE01 ${TESTE01}"
+      - run: echo "TESTE02 ${TESTE02}"
+      - run: if [[ "$TESTE01" == "RLV" ]]; then echo "TESTE01 OK"; else echo "TESTE01 ERROR"; fi
+      - run: if [[ "$TESTE02" == "SAM" ]]; then echo "TESTE02 OK"; else echo "TESTE02 ERROR"; fi
+
+  run-poduction:
+    name: "Teste - Production"
+    environment: production
+    runs-on: ubuntu-latest
+    # env: 
+    #   TESTE01: ${{ secrets.TESTE01 }} 
+    #   TESTE02: ${{ secrets.TESTE02 }}
+    steps:
+      - run: "echo 'env production'"
+      - run: echo "TESTE01 ${TESTE01}"
+      - run: echo "TESTE02 ${TESTE02}"
+      - run: if [[ "$TESTE01" == "prod-RLV" ]]; then echo "TESTE01 OK"; else echo "TESTE01 ERROR"; fi
+      - run: if [[ "$TESTE02" == "prod-SAM" ]]; then echo "TESTE02 OK"; else echo "TESTE02 ERROR"; fi
+
+  run-test:
+    name: "Teste - test"
+    environment: test
+    runs-on: ubuntu-latest
+    # env: 
+    #   TESTE01: ${{ secrets.TESTE01 }} 
+    #   TESTE02: ${{ secrets.TESTE02 }}
+    steps:
+      - run: "echo 'env test'"
+      - run: echo "TESTE01 ${TESTE01}"
+      - run: echo "TESTE02 ${TESTE02}"
+      - run: if [[ "$TESTE01" == "test-RLV" ]]; then echo "TESTE01 OK"; else echo "TESTE01 ERROR"; fi
+      - run: if [[ "$TESTE02" == "test-SAM" ]]; then echo "TESTE02 OK"; else echo "TESTE02 ERROR"; fi
