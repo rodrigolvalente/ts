@@ -16,8 +16,8 @@ jobs:
       TESTE02: ${{ secrets.TESTE02 }}
     steps:
       - run: "echo 'env staging'"
-      - run: "echo 'TESTE01: ${{ TESTE01 }}'"
-      - run: "echo 'TESTE02: ${{ TESTE02 }}'"
+      - run: "echo 'TESTE01: ${TESTE01}'"
+      - run: "echo 'TESTE02: ${TESTE02}'"
 
   run-poduction:
     name: "Teste - Production"
@@ -28,8 +28,8 @@ jobs:
       TESTE02: ${{ secrets.TESTE02 }}
     steps:
       - run: "echo 'env staging'"
-      - run: "echo 'TESTE01: ${{ TESTE01 }}'"
-      - run: "echo 'TESTE02: ${{ TESTE02 }}'"
+      - run: "echo 'TESTE01: ${TESTE01}'"
+      - run: "echo 'TESTE02: ${TESTE02}'"
 
   run-test:
     name: "Teste - test"
@@ -40,5 +40,5 @@ jobs:
       TESTE02: ${{ secrets.TESTE02 }}
     steps:
       - run: "echo 'env staging'"
-      - run: "echo 'TESTE01: ${{ TESTE01 }}'"
-      - run: "echo 'TESTE02: ${{ TESTE02 }}'"
+      - run: "echo 'TESTE01: ${TESTE01}'"
+      - run: "echo 'TESTE02: ${TESTE02}'"
